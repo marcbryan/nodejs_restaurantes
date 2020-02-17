@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Restaurantes</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Correo electrónico</th>
+        <th>Código postal</th>
+      </thead>
+      <tbody>
+        <% restaurantes.forEach((rest, i) => { %>
+          <tr>
+            <td><%= rest.name %></td>
+            <td><%= rest.address %></td>
+            <td><%= rest.phone %></td>
+            <td><%= rest.email %></td>
+            <td><%= rest.zipcode %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </body>
+</html>

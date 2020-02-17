@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Nuevo restaurante</title>
+    <style>
+      form { width: 35vw; display: flex; flex-direction: column; }
+      form > input { margin-bottom: 5px; }
+    </style>
+  </head>
+  <body>
+
+    <form action="/new/restaurante" method="post">
+      <input type="text" name="name" placeholder="Nombre del restaurante">
+      <input type="text" name="address" placeholder="Dirección">
+      <input type="text" name="phone" placeholder="Número de teléfono">
+      <input type="text" name="email" placeholder="Correo electrónico">
+      <input type="text" name="zipcode" placeholder="Código postal">
+      <input type="submit" value="Crear">
+    </form>
+  </body>
+</html>
