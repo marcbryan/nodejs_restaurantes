@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+require('dotenv').config();
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
@@ -8,19 +9,23 @@ app.set('view engine', 'ejs');
 var mongo = require('mongodb').MongoClient;
 var mongoClient;
 
-// connexió a mongo i start app
-mongo.connect('mongodb://localhost:27017', {useUnifiedTopology: true}, function( err, _client ) {
-  // si no ens podem connectar, sortim
+// constantes
+const PORT = process.env.PORT || 3000;
+const user = encodeURIComponent( process.env.DBUSER );
+const pass = encodeURIComponent( process.env.DBPASS );
+
+var conn = 'mongodb+srv://'+user+':'+pass+'@cluster0-ccmcr.mongodb.net';
+
+mongo.connect(conn, {useUnifiedTopology: true}, function( err, _client ) {
   if( err ) throw err;
   mongoClient = _client;
-  // si no hi ha cap error de connexió, engeguem el servidor
-  app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
+  app.listen(PORT, function () {
+    console.log('Example app listening on port '+PORT+'!');
   });
 });
 
 app.get('/restaurantes', function(req, res) {
-  var db = mongoClient.db('restaurantes');
+  var db = mongoClient.db('mongo');
   var options = {};
   var query = {};
   db.collection('restaurantes').find(query, options).toArray(function(err, docs) {
@@ -32,24 +37,23 @@ app.get('/restaurantes', function(req, res) {
   });
 });
 
-app.get('/new/restaurante', function(req, res) {
+app.get('/restaurantes/create', function(req, res) {
   res.render('newRestaurante');
 });
 
-app.post('/new/restaurante', function(req, res) {
-  var rest = new Object();
-  rest.name = req.body.name;
-  rest.address = req.body.address;
-  rest.phone = req.body.phone;
-  rest.email = req.body.email;
-  rest.zipcode = req.body.zipcode;
+app.post('/restaurantes/create', function(req, res) {
+  var name = req.body.name;
+  var address = req.body.address;
+  var phone = req.body.phone;
+  var email = req.body.email;
+  var zipcode = req.body.zipcode;
 
-  //var rest = {name}
+  var rest = {name:name, address:address, phone:phone, email:email, zipcode:zipcode};
 
-  var db = mongoClient.db('restaurantes');
+  var db = mongoClient.db('mongo');
   db.collection('restaurantes').insertOne(rest, function(err, records) {
     if (err) throw err;
-    console.log("Record added as "+records[0]);//._id);
+    console.log("Inserted: "+records.insertedCount);
     res.send('ok');
   });
 });
