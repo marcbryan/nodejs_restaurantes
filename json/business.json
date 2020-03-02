@@ -1,5 +1,7 @@
 {
   "name": "Domino's Pizza",
+  "email": "atencioncliente@dominospizza.es",
+  "phone": "934743538",
   "city": "Cornellà de Llobregat",
   "zipcode": "08940",
   "address": "Ctra. d'Esplugues, 71, 08940 Cornellà de Llobregat, Barcelona",
@@ -98,7 +100,7 @@
           "price": 1.00
         }
       ],
-      "foto": "/var/www/html/images/pizza_carb.jpg"
+      "pic": "/var/www/html/images/pizza_carb.jpg"
     },
     {
       "name": {
@@ -117,7 +119,7 @@
           "price": 1.00
         }
       ],
-      "foto": "/var/www/html/images/pizza_bbq.jpg"
+      "pic": "/var/www/html/images/pizza_bbq.jpg"
     },
   ],
 }
