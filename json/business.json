@@ -1,0 +1,123 @@
+{
+  "name": "Domino's Pizza",
+  "city": "Cornellà de Llobregat",
+  "zipcode": "08940",
+  "address": "Ctra. d'Esplugues, 71, 08940 Cornellà de Llobregat, Barcelona",
+  "coord": {
+    "lat": 41.359179,
+    "lon": 2.071451
+  },
+  "schedule": [
+    {
+      "dow":1,
+      "opensAt":"12:00",
+      "closesAt":"16:45"
+    },
+    {
+      "dow":1,
+      "opensAt":"20:00",
+      "closesAt":"23:30"
+    },
+    {
+      "dow":2,
+      "opensAt":"12:00",
+      "closesAt":"16:45"
+    },
+    {
+      "dow":2,
+      "opensAt":"20:00",
+      "closesAt":"23:30"
+    },
+    {
+      "dow":3,
+      "opensAt":"12:00",
+      "closesAt":"16:45"
+    },
+    {
+      "dow":3,
+      "opensAt":"20:00",
+      "closesAt":"23:30"
+    },
+    {
+      "dow":4,
+      "opensAt":"12:00",
+      "closesAt":"16:45"
+    },
+    {
+      "dow":4,
+      "opensAt":"20:00",
+      "closesAt":"23:30"
+    },
+    {
+      "dow":5,
+      "opensAt":"12:00",
+      "closesAt":"16:45"
+    },
+    {
+      "dow":5,
+      "opensAt":"20:00",
+      "closesAt":"23:30"
+    },
+    {
+      "dow":6,
+      "opensAt":"12:00",
+      "closesAt":"16:45"
+    },
+    {
+      "dow":6,
+      "opensAt":"20:00",
+      "closesAt":"23:30"
+    },
+    {
+      "dow":7,
+      "opensAt":"12:00",
+      "closesAt":"16:45"
+    },
+    {
+      "dow":7,
+      "opensAt":"20:00",
+      "closesAt":"23:30"
+    },
+  ],
+  "categories": ["Pizzeria", "Comida rápida"],
+  "products": [
+    {
+      "name": {
+        "es": "Carbonara",
+        "en": "Carbonara"
+      },
+      "description": {
+        "es": "Pizza Carbonara: Crema fresca, mozzarella, bacon, champiñón y cebolla.",
+        "en": "Carbonara Pizza: Fresh cream, mozzarella, bacon, mushroom and onion."
+      },
+      "categories": ["Pizzas"],
+      "price": 10.50,
+      "extras": [
+        {
+          "name": "Extra de queso",
+          "price": 1.00
+        }
+      ],
+      "foto": "/var/www/html/images/pizza_carb.jpg"
+    },
+    {
+      "name": {
+        "es": "Barbacoa",
+        "en": "Barbecue"
+      },
+      "description": {
+        "es": "Salsa barbacoa, queso 100% mozzarella,carne de vacuno, cebolla, bacon, maíz.",
+        "en": "Barbecue sauce, 100% mozzarella cheese, beef, onion, bacon, corn."
+      },
+      "categories": ["Pizzas", "Carne"],
+      "price": 12.50,
+      "extras": [
+        {
+          "name": "Extra de queso",
+          "price": 1.00
+        }
+      ],
+      "foto": "/var/www/html/images/pizza_bbq.jpg"
+    },
+  ],
+}
