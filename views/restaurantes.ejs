@@ -7,24 +7,37 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+    <script type="text/javascript">
+      $(function() {
+        $('.fa-bookmark').click(function() {
+          var tr = $(this).parent().parent();
+          window.location.href = "/restaurantes/"+ tr.attr('_id') +"/updateCategories";
+        });
+      });
+    </script>
   </head>
   <body>
     <table class="table table-dark table-hover">
       <thead>
         <th scope="col">Nombre</th>
-        <th scope="col">Dirección</th>
-        <th scope="col">Teléfono</th>
         <th scope="col">Correo electrónico</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Dirección</th>
         <th scope="col">Código postal</th>
+        <th scope="col">Categorías</th>
       </thead>
       <tbody>
         <% restaurantes.forEach((rest, i) => { %>
-          <tr>
+          <tr _id="<%= rest._id %>">
             <td><%= rest.name %></td>
-            <td><%= rest.address %></td>
-            <td><%= rest.phone %></td>
             <td><%= rest.email %></td>
+            <td><%= rest.phone %></td>
+            <td><%= rest.address %></td>
             <td><%= rest.zipcode %></td>
+            <td><i class="fas fa-bookmark"></i></td>
           </tr>
         <% }); %>
       </tbody>

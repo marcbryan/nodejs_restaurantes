@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Añadir/Eliminar Categorías</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(function() {
+        $('#btnAddCategory').click(function() {
+          $('#categoriesList').append('<li><div><input type="text" name="category[]" placeholder="Nombre de la nueva categoría"/><button type="button">X</button></div></li>');
+        });
+      });
+    </script>
+    <style>
+      ul { list-style-type: none; padding: 0; }
+      li { margin-bottom: 5px; }
+    </style>
+  </head>
+  <body>
+    <p>Categorías</p>
+    <form method="post">
+      <ul id="categoriesList">
+        <% categories.forEach((categ, i) => { %>
+        <li>
+          <div>
+            <input type="text" value="<%= categ %>"/>
+            <button type="button">X</button>
+          </div>
+        </li>
+        <% }); %>
+      </ul>
+      <button type="button" id="btnAddCategory">Añadir Categoría</button>
+      <input type="submit" value="Guardar">
+    </form>
+
+  </body>
+</html>
